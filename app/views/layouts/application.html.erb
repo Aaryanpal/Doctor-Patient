@@ -19,9 +19,13 @@
   </head>
 
   <body>
-    <%=render '/layouts/nav'%>
-    <main class="container mx-auto flex ">
-      <%= yield %>
-    </main>
+    <%= render 'layouts/nav' %>
+    <div class="bg-slate-300 flex">
+      <%= render 'layouts/sidebar' %>
+      <main class="bg-slate-500 w-5/6 p-4 flex-grow">
+        <%= Time.zone.now %>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

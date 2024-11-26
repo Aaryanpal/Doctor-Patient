@@ -5,6 +5,8 @@
 import { application } from "./application"
 import DialogController from "./dialog_controller"
 import HelloController from "./hello_controller"
+import SideBarController from "./sidebar_controller"
 
 application.register("dialog", DialogController)
 application.register("hello", HelloController)
+application.register("sidebar", SideBarController)
