@@ -56,3 +56,7 @@ end
 gem "devise", "~> 4.9"
 gem "devise-tailwindcssed"
 gem "rolify", "~> 6.0"
+
+gem "flipper"
+gem "flipper-ui"
+gem "flipper-active_record"

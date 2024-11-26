@@ -5,14 +5,34 @@
 
   <% content_for :title, "Patients" %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center" data-controller="hello">
     <h1 class="font-bold text-4xl">Patients</h1>
-    <%= link_to "New patient", new_patient_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to "New patient", new_patient_path, class: "rounded-lg py-3 px-5 text-white block font-medium bg-blue-600 hover:bg-blue-500" %>
   </div>
 
-  <div id="patients" class="min-w-full">
-    <% @patients.each do |patient| %>
-      <%= render patient %>
-    <% end %>
+  <div id="patients" class="min-w-full mt-10" data-controller="dialog" data-action="click->dialog#backdropClose">
+    <div class="relative overflow-hidden shadow-md">
+      <table class="table-fixed w-full text-left">
+        <thead class="uppercase bg-[#175ade] text-[#e5e7eb]" style="background-color: #175ade; color: #e5e7eb;">
+            <tr>
+              <th class="py-1 border text-center font-bold p-4">First name</th>
+              <th class="py-1 border text-center font-bold p-4">Last name</th>
+              <th class="hidden md:table-cell py-1 border text-center font-bold p-4">Email</th>
+              <th class="py-1 border text-center font-bold p-4">Phone number</th>
+              <th class="hidden md:table-cell py-1 border text-center font-bold p-4">Date of birth</th>
+              <th class="hidden md:table-cell py-1 border text-center font-bold p-4">Gender</th>
+              <th class="hidden md:table-cell py-1 border text-center font-bold p-4">Address</th>
+              <th class="py-1 border text-center font-bold p-4">Created by</th>
+              <th class="py-1 border text-center font-bold p-4">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white text-gray-500 bg-[#ffffff] text-[#000000]" style="background-color: #ffffff; color: #000000;">
+            <% @patients.each do |patient| %>
+              <%= render patient %>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= render 'shared/form_modal'%>
   </div>
 </div>

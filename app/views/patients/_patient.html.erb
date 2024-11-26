@@ -1,46 +1,21 @@
-<div class="flex flex-row gap-5">
-  <p class="my-5">
-    <small class="block font-medium mb-1">First name:</small>
-    <%= patient.first_name %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Last name:</small>
-    <%= patient.last_name %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Email:</small>
-    <%= patient.email %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Phone number:</small>
-    <%= patient.phone_number %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Date of birth:</small>
-    <%= patient.date_of_birth %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Gender:</small>
-    <%= patient.gender %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Address:</small>
-    <%= patient.address %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Created by:</small>
-    <%= patient&.creator&.email %>
-  </p>
-
-  <p class="my-5">
-    <small class="block font-medium mb-1">Created by:</small>
-    <%= patient&.creator&.email %>
-  </p>
-</div>
+<tr class="py-5 hover:bg-slate-100">
+  <td class="text-sm py-5 border-y text-center"><%= patient.first_name %></td>
+  <td class="text-sm py-5 border-y text-center "><%= patient.last_name %></td>
+  <td class="text-sm hidden md:table-cell py-5 border-y text-center"><%= patient.email %></td>
+  <td class="text-sm py-5 border-y text-center "><%= patient.phone_number %></td>
+  <td class="text-sm hidden md:table-cell py-5 border-y text-center "><%= patient.date_of_birth %></td>
+  <td class="text-sm hidden md:table-cell py-5 border-y text-center "><%= patient.gender %></td>
+  <td class="text-sm hidden md:table-cell py-5 border-y text-center "><%= patient.address %></td>
+  <td class="text-sm py-5 border-y text-center text-wrap truncate"><%= patient&.creator&.email %></td>
+  <td class="text-sm py-5 border-y justify-center flex">
+    <%= link_to 'javascript:void(0)', data: { action: "dialog#open", value: "#{patient.id}" }, class: "ml-2 rounded-lg py-3 px-4 bg-gray-100 inline-block font-medium cursor-pointer" do %>
+      <%= render_icon 'info', classes: 'h-20 w-20' %>
+    <% end %>
+    <%= link_to edit_patient_path(patient), class: "ml-2 rounded-lg py-3 px-4 bg-gray-100 inline-block font-medium cursor-pointer" do %>
+    <%= render_icon 'update', classes: 'h-20 w-20' %>
+    <% end %>
+    <%= link_to patient_path(patient), data: { "turbo-method": :delete }, class: "ml-2 rounded-lg py-3 px-4 bg-red-500 inline-block font-medium cursor-pointer"  do %>
+      <%= render_icon 'delete', classes: 'h-20 w-20' %>
+    <% end %>
+  </td>
+</tr>
