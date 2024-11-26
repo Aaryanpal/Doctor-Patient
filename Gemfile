@@ -52,3 +52,7 @@ group :development do
   gem "web-console"
 end
 
+
+gem "devise", "~> 4.9"
+gem "devise-tailwindcssed"
+gem "rolify", "~> 6.0"
