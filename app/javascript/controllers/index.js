@@ -3,10 +3,12 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-import DialogController from "./dialog_controller"
-import HelloController from "./hello_controller"
-import SideBarController from "./sidebar_controller"
 
+import DialogController from "./dialog_controller"
 application.register("dialog", DialogController)
+
+import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-application.register("sidebar", SideBarController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)

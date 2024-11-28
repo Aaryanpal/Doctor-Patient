@@ -1,10 +1,11 @@
 class PatientsController < ApplicationController
+  layout 'layouts/dashboard'
   before_action :authenticate_user!
   before_action :set_patient, only: %i[ show edit update destroy ]
 
   # GET /patients or /patients.json
   def index
-    @patients = Patient.all
+    @patients = Patient.latest
   end
 
   # GET /patients/1 or /patients/1.json

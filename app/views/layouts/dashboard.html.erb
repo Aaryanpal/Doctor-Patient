@@ -19,7 +19,9 @@
   </head>
 
   <body>
+    <%= render 'layouts/nav' %>
     <div class="bg-slate-300 flex">
+      <%= render 'layouts/sidebar' %>
       <main class="bg-slate-50 w-5/6 p-4 flex-grow">
         <%= yield %>
       </main>

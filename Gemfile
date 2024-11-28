@@ -57,6 +57,12 @@ gem "devise", "~> 4.9"
 gem "devise-tailwindcssed"
 gem "rolify", "~> 6.0"
 
+
+# Todo Implemnt Inline Edits with this
 gem "flipper"
 gem "flipper-ui"
 gem "flipper-active_record"
+gem "pry"
+
+# Todo Implemnt Inline Edits with this
+gem 'pagy'
